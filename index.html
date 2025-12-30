@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pimpla Design | Эффективная инфографика</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --black: #000000;
+            --accent-blue: #007AFF; 
+            --header-gray: rgba(245, 245, 247, 0.95);
+            --border-color: #E5E5E5;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--white); color: var(--black); line-height: 1.5; }
+
+        /* БАХРОМА */
+        header { 
+            background: var(--header-gray); padding: 20px 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            position: fixed; width: 100%; top: 0; z-index: 1000; 
+            border-bottom: 1px solid var(--border-color); backdrop-filter: blur(15px);
+        }
+        .b-logo { font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .b-logo span { color: var(--accent-blue); }
+        nav { display: flex; gap: 30px; }
+        nav a { color: var(--black); text-decoration: none; font-size: 12px; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
+        nav a:hover { color: var(--accent-blue); }
+
+        /* ШАПКА */
+        .hero-section { 
+            padding: 180px 8% 100px 8%; 
+            display: flex; flex-direction: column; align-items: center; 
+            text-align: center; background: radial-gradient(circle at 50% 100%, #f5f5f7 0%, #fff 50%);
+        }
+        .hero-title { font-size: 5rem; font-weight: 800; text-transform: uppercase; margin: 0; line-height: 0.9; letter-spacing: -2px; }
+        .hero-title span { color: var(--accent-blue); }
+        .hero-subtitle { font-size: 20px; color: #333; margin: 25px 0; max-width: 600px; font-weight: 500; }
+        
+        .hero-features { display: flex; gap: 40px; margin: 30px 0; }
+        .f-item { font-size: 12px; text-transform: uppercase; font-weight: 700; color: #888; display: flex; align-items: center; gap: 8px; }
+        .f-item::before { content: ''; width: 6px; height: 6px; background: var(--accent-blue); border-radius: 50%; }
+
+        .cta-btn { 
+            background: var(--black); color: white; text-decoration: none; 
+            padding: 18px 35px; border-radius: 40px; font-weight: 700; 
+            font-size: 14px; text-transform: uppercase; transition: 0.3s; margin-top: 20px;
+        }
+        .cta-btn:hover { transform: scale(1.05); background: var(--accent-blue); }
+
+        /* ПОРТФОЛИО */
+        section { padding: 100px 8%; border-bottom: 1px solid var(--border-color); }
+        h2 { font-size: 22px; text-align: center; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 4px; font-weight: 800; }
+
+        .filter-nav { display: flex; justify-content: center; gap: 5px; margin-bottom: 50px; flex-wrap: wrap; }
+        .filter-link { background: none; border: none; width: 140px; padding: 12px 0; font-weight: 700; font-size: 11px; color: #999; cursor: pointer; text-transform: uppercase; border-bottom: 2px solid transparent; transition: 0.3s; }
+        .filter-link.active { color: var(--black); border-bottom-color: var(--accent-blue); }
+
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .work-card { border-radius: 16px; overflow: hidden; background: #f9f9f9; display: none; opacity: 0; transform: translateY(20px); transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); cursor: zoom-in; }
+        .work-card.visible { display: block; opacity: 1; transform: translateY(0); }
+        .work-card img { width: 100%; display: block; aspect-ratio: 3/4; object-fit: cover; }
+
+        .circle-btn { width: 65px; height: 65px; background: var(--black); border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; margin: 60px auto 0; transition: 0.4s; }
+        .chevron { width: 12px; height: 12px; border-bottom: 3px solid var(--white); border-right: 3px solid var(--white); transform: rotate(45deg); margin-top: -5px; transition: 0.4s; }
+        .circle-btn.open .chevron { transform: rotate(-135deg); margin-top: 5px; }
+
+        /* РЕЗУЛЬТАТЫ */
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .res-card { background: #f5f5f7; padding: 50px 20px; border-radius: 20px; text-align: center; }
+        .res-card h3 { color: var(--accent-blue); font-size: 42px; margin: 0 0 10px 0; font-weight: 800; }
+        .res-card h3 span { font-size: 24px; font-weight: 600; }
+        .res-card p { margin: 0; font-size: 13px; text-transform: uppercase; font-weight: 700; color: #666; letter-spacing: 1px; }
+
+        /* КАЛЬКУЛЯТОР */
+        .calc-area { max-width: 650px; margin: 0 auto; background: #000; color: white; padding: 60px; border-radius: 40px; }
+        .row { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; border-bottom: 1px solid #222; }
+        .cnt-btn { background: #fff; border: none; width: 36px; height: 36px; border-radius: 8px; cursor: pointer; font-weight: 900; font-size: 18px; }
+        .term-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 25px 0 45px; }
+        .term-option { background: #111; border: 1px solid #222; padding: 20px 5px; text-align: center; border-radius: 15px; cursor: pointer; font-size: 14px; font-weight: 700; color: #777; text-transform: uppercase; }
+        .term-option span { display: block; font-size: 10px; opacity: 0.5; margin-top: 6px; font-weight: 400; }
+        .term-option.selected { background: var(--accent-blue); border-color: var(--accent-blue); color: white; }
+        .total-container { text-align: center; background: #111; padding: 35px; border-radius: 25px; margin-bottom: 35px; border: 1px solid #222; }
+        .total-amount { font-size: 48px; font-weight: 800; color: var(--accent-blue); }
+        .order-form input, .order-form textarea { padding: 20px; border-radius: 15px; border: 1px solid #333; background: #111; color: #fff; width: 100%; margin-bottom: 15px; outline: none; font-family: inherit; font-size: 15px; }
+        .submit-btn { background: var(--accent-blue); color: white; border: none; padding: 22px; border-radius: 15px; font-weight: 700; width: 100%; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* LIGHTBOX */
+        .lightbox { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); justify-content: center; align-items: center; }
+        .lightbox img { max-width: 90%; max-height: 85vh; border-radius: 10px; }
+
+        @media (max-width: 900px) { .hero-title { font-size: 3.5rem; } .grid, .results-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .hero-title { font-size: 2.5rem; } .grid, .results-grid, .term-group { grid-template-columns: 1fr; } .hero-features { flex-direction: column; gap: 15px; } }
+    </style>
+</head>
+<body>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+</div>
+
+<header>
+    <div class="b-logo">PIMPLA <span>DESIGN</span></div>
+    <nav>
+        <a href="#hero">Главная</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#results">Цифры</a>
+        <a href="#order">Заказать</a>
+    </nav>
+</header>
+
+<section id="hero" class="hero-section">
+    <h1 class="hero-title">PIMPLA <span>DESIGN</span></h1>
+    <p class="hero-subtitle">Создаем визуальные смыслы, которые превращают просмотры в продажи на маркетплейсах.</p>
+    
+    <div class="hero-features">
+        <div class="f-item">Высокий CTR (8.2%+)</div>
+        <div class="f-item">Глубокий анализ ниши</div>
+        <div class="f-item">Премиальный стиль</div>
+    </div>
+
+    <a href="#order" class="cta-btn">Рассчитать проект</a>
+</section>
+
+<section id="portfolio">
+    <h2>Наши работы</h2>
+    <div class="filter-nav">
+        <button class="filter-link active" onclick="filterWork('all', this)">Все</button>
+        <button class="filter-link" onclick="filterWork('minimal', this)">Минимализм</button>
+        <button class="filter-link" onclick="filterWork('real', this)">Реализм</button>
+        <button class="filter-link" onclick="filterWork('neo', this)">Неореализм</button>
+    </div>
+    <div class="grid" id="portfolio-grid">
+        <div class="work-card minimal" onclick="openLightbox(this)"><img src="min1.jpg" alt="iPhone"></div>
+        <div class="work-card neo" onclick="openLightbox(this)"><img src="neo1.jpg" alt="Шейвер"></div>
+        <div class="work-card real" onclick="openLightbox(this)"><img src="real1.jpg" alt="Лопатка"></div>
+        
+        <div class="work-card neo" onclick="openLightbox(this)"><img src="neo2.jpg" alt="Очки"></div>
+        <div class="work-card minimal" onclick="openLightbox(this)"><img src="ball.jpg" alt="Мячик"></div>
+        <div class="work-card real" onclick="openLightbox(this)"><img src="pilka.jpg" alt="Пилка"></div>
+        <div class="work-card minimal" onclick="openLightbox(this)"><img src="min2.jpg"></div>
+        <div class="work-card real" onclick="openLightbox(this)"><img src="real2.jpg"></div>
+    </div>
+    <button class="circle-btn" id="toggle-btn" onclick="toggleExpand()">
+        <span class="chevron"></span>
+    </button>
+</section>
+
+<section id="results">
+    <h2>Результаты в цифрах</h2>
+    <div class="results-grid">
+        <div class="res-card">
+            <h3>2 <span>ГОДА</span></h3>
+            <p>в сфере инфографики</p>
+        </div>
+        <div class="res-card">
+            <h3>8.2%</h3>
+            <p>средний показатель CTR</p>
+        </div>
+        <div class="res-card">
+            <h3>>100</h3>
+            <p>карточек реализовано</p>
+        </div>
+    </div>
+</section>
+
+<section id="order">
+    <div class="calc-area">
+        <h2 style="color: white; margin: 0 0 30px 0; text-align: left; font-size: 24px; letter-spacing: 1px;">КАЛЬКУЛЯТОР</h2>
+        
+        <div style="border: 1px solid var(--accent-blue); padding: 15px; border-radius: 12px; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; background: rgba(0, 122, 255, 0.05);">
+            <span style="font-size: 20px;">🎁</span>
+            <span style="font-size: 13px; font-weight: 600; color: #fff; text-transform: uppercase; letter-spacing: 0.5px;">
+                Первый заказ? Дарим скидку 5% на весь проект
+            </span>
+        </div>
+
+        <div class="row"><span>Обложка (1 500 ₽)</span><div><button class="cnt-btn" onclick="u('c',-1)">-</button><span id="q-c" style="margin: 0 15px;">0</span><button class="cnt-btn" onclick="u('c',1)">+</button></div></div>
+        <div class="row"><span>Слайды (1 200 ₽)</span><div><button class="cnt-btn" onclick="u('s',-1)">-</button><span id="q-s" style="margin: 0 15px;">0</span><button class="cnt-btn" onclick="u('s',1)">+</button></div></div>
+        <div class="row"><span>Тест CTR (4 000 ₽)</span><div><button class="cnt-btn" onclick="u('ctr',-1)">-</button><span id="q-ctr" style="margin: 0 15px;">0</span><button class="cnt-btn" onclick="u('ctr',1)">+</button></div></div>
+        <div class="row"><span>Видео анимация (3 000 ₽)</span><div><button class="cnt-btn" onclick="u('v',-1)">-</button><span id="q-v" style="margin: 0 15px;">0</span><button class="cnt-btn" onclick="u('v',1)">+</button></div></div>
+
+        <div class="term-group">
+            <div class="term-option" onclick="selectTerm(this)">СРОЧНО<span>до 2 дней</span></div>
+            <div class="term-option selected" onclick="selectTerm(this)">СТАНДАРТ<span>3-5 дней</span></div>
+            <div class="term-option" onclick="selectTerm(this)">НЕ СПЕШУ<span>более 5 дней</span></div>
+        </div>
+
+        <div class="total-container"><div id="total" class="total-amount">0 ₽</div></div>
+        <form class="order-form">
+            <input type="text" placeholder="Telegram @username" required>
+            <textarea placeholder="Опишите задачу или вставьте ссылку на товар..." rows="3"></textarea>
+            <button class="submit-btn" type="button">Отправить запрос</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    let currentCat = 'all', isExpanded = false;
+
+    function filterWork(cat, btn) {
+        document.querySelectorAll('.filter-link').forEach(l => l.classList.remove('active'));
+        btn.classList.add('active');
+        currentCat = cat; isExpanded = false;
+        document.getElementById('toggle-btn').classList.remove('open');
+        updateGallery();
+    }
+
+    function updateGallery() {
+        const cards = document.querySelectorAll('.work-card');
+        let count = 0;
+        cards.forEach(card => {
+            const matches = (currentCat === 'all' || card.classList.contains(currentCat));
+            card.classList.remove('visible');
+            if (matches) {
+                count++;
+                if (isExpanded || count <= 3) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.classList.add('visible'), 50);
+                } else {
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            } else {
+                setTimeout(() => card.style.display = 'none', 300);
+            }
+        });
+        document.getElementById('toggle-btn').style.display = (count > 3) ? 'flex' : 'none';
+    }
+
+    function toggleExpand() { isExpanded = !isExpanded; document.getElementById('toggle-btn').classList.toggle('open'); updateGallery(); }
+
+    const pr = { c: 1500, s: 1200, ctr: 4000, v: 3000 };
+    let q = { c: 0, s: 0, ctr: 0, v: 0 };
+    function u(i, v) {
+        q[i] = Math.max(0, q[i] + v);
+        document.getElementById('q-' + i).innerText = q[i];
+        const sum = (q.c*pr.c)+(q.s*pr.s)+(q.ctr*pr.ctr)+(q.v*pr.v);
+        document.getElementById('total').innerText = sum.toLocaleString() + ' ₽';
+    }
+
+    function selectTerm(el) {
+        document.querySelectorAll('.term-option').forEach(opt => opt.classList.remove('selected'));
+        el.classList.add('selected');
+    }
+
+    function openLightbox(el) { document.getElementById('lightbox-img').src = el.querySelector('img').src; document.getElementById('lightbox').style.display = 'flex'; }
+    function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; }
+    window.onload = updateGallery;
+</script>
+
+</body>
+</html>
