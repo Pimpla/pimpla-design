@@ -17,7 +17,6 @@
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; margin: 0; background: var(--white); color: var(--black); line-height: 1.5; }
 
-        /* БАХРОМА */
         header { 
             background: var(--header-gray); padding: 20px 8%; 
             display: flex; justify-content: space-between; align-items: center; 
@@ -30,7 +29,6 @@
         nav a { color: var(--black); text-decoration: none; font-size: 12px; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
         nav a:hover { color: var(--accent-blue); }
 
-        /* ШАПКА */
         .hero-section { 
             padding: 180px 8% 100px 8%; 
             display: flex; flex-direction: column; align-items: center; 
@@ -51,7 +49,6 @@
         }
         .cta-btn:hover { transform: scale(1.05); background: var(--accent-blue); }
 
-        /* ПОРТФОЛИО */
         section { padding: 100px 8%; border-bottom: 1px solid var(--border-color); }
         h2 { font-size: 22px; text-align: center; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 4px; font-weight: 800; }
 
@@ -68,14 +65,12 @@
         .chevron { width: 12px; height: 12px; border-bottom: 3px solid var(--white); border-right: 3px solid var(--white); transform: rotate(45deg); margin-top: -5px; transition: 0.4s; }
         .circle-btn.open .chevron { transform: rotate(-135deg); margin-top: 5px; }
 
-        /* РЕЗУЛЬТАТЫ */
         .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .res-card { background: #f5f5f7; padding: 50px 20px; border-radius: 20px; text-align: center; }
         .res-card h3 { color: var(--accent-blue); font-size: 42px; margin: 0 0 10px 0; font-weight: 800; }
         .res-card h3 span { font-size: 24px; font-weight: 600; }
         .res-card p { margin: 0; font-size: 13px; text-transform: uppercase; font-weight: 700; color: #666; letter-spacing: 1px; }
 
-        /* КАЛЬКУЛЯТОР */
         .calc-area { max-width: 650px; margin: 0 auto; background: #000; color: white; padding: 60px; border-radius: 40px; }
         .row { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; border-bottom: 1px solid #222; }
         .cnt-btn { background: #fff; border: none; width: 36px; height: 36px; border-radius: 8px; cursor: pointer; font-weight: 900; font-size: 18px; }
@@ -88,7 +83,6 @@
         .order-form input, .order-form textarea { padding: 20px; border-radius: 15px; border: 1px solid #333; background: #111; color: #fff; width: 100%; margin-bottom: 15px; outline: none; font-family: inherit; font-size: 15px; }
         .submit-btn { background: var(--accent-blue); color: white; border: none; padding: 22px; border-radius: 15px; font-weight: 700; width: 100%; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* LIGHTBOX */
         .lightbox { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); justify-content: center; align-items: center; }
         .lightbox img { max-width: 90%; max-height: 85vh; border-radius: 10px; }
 
@@ -115,13 +109,11 @@
 <section id="hero" class="hero-section">
     <h1 class="hero-title">PIMPLA <span>DESIGN</span></h1>
     <p class="hero-subtitle">Создаем визуальные смыслы, которые превращают просмотры в продажи на маркетплейсах.</p>
-    
     <div class="hero-features">
         <div class="f-item">Высокий CTR (8.2%+)</div>
         <div class="f-item">Глубокий анализ ниши</div>
         <div class="f-item">Премиальный стиль</div>
     </div>
-
     <a href="#order" class="cta-btn">Рассчитать проект</a>
 </section>
 
@@ -134,13 +126,12 @@
         <button class="filter-link" onclick="filterWork('neo', this)">Неореализм</button>
     </div>
     <div class="grid" id="portfolio-grid">
-        <div class="work-card minimal" onclick="openLightbox(this)"><img src="min1.jpg" alt="iPhone"></div>
-        <div class="work-card neo" onclick="openLightbox(this)"><img src="neo1.jpg" alt="Шейвер"></div>
-        <div class="work-card real" onclick="openLightbox(this)"><img src="real1.jpg" alt="Лопатка"></div>
-        
-        <div class="work-card neo" onclick="openLightbox(this)"><img src="neo2.jpg" alt="Очки"></div>
-        <div class="work-card minimal" onclick="openLightbox(this)"><img src="ball.jpg" alt="Мячик"></div>
-        <div class="work-card real" onclick="openLightbox(this)"><img src="pilka.jpg" alt="Пилка"></div>
+        <div class="work-card minimal" onclick="openLightbox(this)"><img src="min1.jpg" alt="Work"></div>
+        <div class="work-card neo" onclick="openLightbox(this)"><img src="neo1.jpg" alt="Work"></div>
+        <div class="work-card real" onclick="openLightbox(this)"><img src="real1.jpg" alt="Work"></div>
+        <div class="work-card neo" onclick="openLightbox(this)"><img src="neo2.jpg" alt="Work"></div>
+        <div class="work-card minimal" onclick="openLightbox(this)"><img src="ball.jpg" alt="Work"></div>
+        <div class="work-card real" onclick="openLightbox(this)"><img src="pilka.jpg" alt="Work"></div>
         <div class="work-card minimal" onclick="openLightbox(this)"><img src="min2.jpg"></div>
         <div class="work-card real" onclick="openLightbox(this)"><img src="real2.jpg"></div>
     </div>
@@ -169,38 +160,34 @@
 
 <section id="order">
     <div class="calc-area">
-        <h2 style="color: white; margin: 0 0 30px 0; text-align: left; font-size: 24px; letter-spacing: 1px;">КАЛЬКУЛЯТОР</h2>
-        
+        <h2 style="color: white; margin: 0 0 30px 0; text-align: left; font-size: 24px;">КАЛЬКУЛЯТОР</h2>
         <div style="border: 1px solid var(--accent-blue); padding: 15px; border-radius: 12px; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; background: rgba(0, 122, 255, 0.05);">
             <span style="font-size: 20px;">🎁</span>
-            <span style="font-size: 13px; font-weight: 600; color: #fff; text-transform: uppercase; letter-spacing: 0.5px;">
-                Первый заказ? Дарим скидку 5% на весь проект
-            </span>
+            <span style="font-size: 13px; font-weight: 600; color: #fff; text-transform: uppercase; letter-spacing: 0.5px;">Первый заказ? Скидка 5% на весь проект</span>
         </div>
-
         <div class="row"><span>Обложка (1 500 ₽)</span><div><button class="cnt-btn" onclick="u('c',-1)">-</button><span id="q-c" style="margin: 0 15px;">0</span><button class="cnt-btn" onclick="u('c',1)">+</button></div></div>
         <div class="row"><span>Слайды (1 200 ₽)</span><div><button class="cnt-btn" onclick="u('s',-1)">-</button><span id="q-s" style="margin: 0 15px;">0</span><button class="cnt-btn" onclick="u('s',1)">+</button></div></div>
         <div class="row"><span>Тест CTR (4 000 ₽)</span><div><button class="cnt-btn" onclick="u('ctr',-1)">-</button><span id="q-ctr" style="margin: 0 15px;">0</span><button class="cnt-btn" onclick="u('ctr',1)">+</button></div></div>
-        <div class="row"><span>Видео анимация (3 000 ₽)</span><div><button class="cnt-btn" onclick="u('v',-1)">-</button><span id="q-v" style="margin: 0 15px;">0</span><button class="cnt-btn" onclick="u('v',1)">+</button></div></div>
-
+        <div class="row"><span>Видео (3 000 ₽)</span><div><button class="cnt-btn" onclick="u('v',-1)">-</button><span id="q-v" style="margin: 0 15px;">0</span><button class="cnt-btn" onclick="u('v',1)">+</button></div></div>
         <div class="term-group">
             <div class="term-option" onclick="selectTerm(this)">СРОЧНО<span>до 2 дней</span></div>
             <div class="term-option selected" onclick="selectTerm(this)">СТАНДАРТ<span>3-5 дней</span></div>
             <div class="term-option" onclick="selectTerm(this)">НЕ СПЕШУ<span>более 5 дней</span></div>
         </div>
-
         <div class="total-container"><div id="total" class="total-amount">0 ₽</div></div>
         <form class="order-form">
-            <input type="text" placeholder="Telegram @username" required>
-            <textarea placeholder="Опишите задачу или вставьте ссылку на товар..." rows="3"></textarea>
-            <button class="submit-btn" type="button">Отправить запрос</button>
+            <input type="text" id="client-tg" placeholder="Telegram @username" required>
+            <textarea id="client-task" placeholder="Опишите задачу..." rows="3"></textarea>
+            <button class="submit-btn" type="button" onclick="sendToTelegram()">Отправить запрос</button>
         </form>
     </div>
 </section>
 
 <script>
-    let currentCat = 'all', isExpanded = false;
+    const TG_TOKEN = '8171908277:AAF1SkFHywDWN8heQzH938PEhZf2YqIJe98';
+    const TG_CHAT_ID = '6010054024';
 
+    let currentCat = 'all', isExpanded = false;
     function filterWork(cat, btn) {
         document.querySelectorAll('.filter-link').forEach(l => l.classList.remove('active'));
         btn.classList.add('active');
@@ -208,7 +195,6 @@
         document.getElementById('toggle-btn').classList.remove('open');
         updateGallery();
     }
-
     function updateGallery() {
         const cards = document.querySelectorAll('.work-card');
         let count = 0;
@@ -220,16 +206,11 @@
                 if (isExpanded || count <= 3) {
                     card.style.display = 'block';
                     setTimeout(() => card.classList.add('visible'), 50);
-                } else {
-                    setTimeout(() => card.style.display = 'none', 300);
-                }
-            } else {
-                setTimeout(() => card.style.display = 'none', 300);
-            }
+                } else { card.style.display = 'none'; }
+            } else { card.style.display = 'none'; }
         });
         document.getElementById('toggle-btn').style.display = (count > 3) ? 'flex' : 'none';
     }
-
     function toggleExpand() { isExpanded = !isExpanded; document.getElementById('toggle-btn').classList.toggle('open'); updateGallery(); }
 
     const pr = { c: 1500, s: 1200, ctr: 4000, v: 3000 };
@@ -240,16 +221,34 @@
         const sum = (q.c*pr.c)+(q.s*pr.s)+(q.ctr*pr.ctr)+(q.v*pr.v);
         document.getElementById('total').innerText = sum.toLocaleString() + ' ₽';
     }
-
     function selectTerm(el) {
         document.querySelectorAll('.term-option').forEach(opt => opt.classList.remove('selected'));
         el.classList.add('selected');
+    }
+
+    async function sendToTelegram() {
+        const tg = document.getElementById('client-tg').value;
+        const task = document.getElementById('client-task').value;
+        const total = document.getElementById('total').innerText;
+        const term = document.querySelector('.term-option.selected').firstChild.textContent;
+
+        if(!tg) { alert('Пожалуйста, введите ваш Telegram'); return; }
+
+        const text = `🚀 *НОВЫЙ ЗАКАЗ*\n\n👤 *Клиент:* ${tg}\n💰 *Сумма:* ${total}\n⏳ *Срок:* ${term}\n\n📊 *Состав:*\n- Обложки: ${q.c}\n- Слайды: ${q.s}\n- Тесты: ${q.ctr}\n- Видео: ${q.v}\n\n📝 *Задача:* ${task}`;
+
+        try {
+            await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: TG_CHAT_ID, text: text, parse_mode: 'Markdown' })
+            });
+            alert('Заявка отправлена! Ожидайте сообщения.');
+        } catch(e) { alert('Ошибка. Попробуйте снова.'); }
     }
 
     function openLightbox(el) { document.getElementById('lightbox-img').src = el.querySelector('img').src; document.getElementById('lightbox').style.display = 'flex'; }
     function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; }
     window.onload = updateGallery;
 </script>
-
 </body>
 </html>
